@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 const mongoose = require("mongoose");
 const { GridFsStorage } = require("multer-gridfs-storage");
 const multer = require("multer");
