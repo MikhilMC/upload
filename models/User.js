@@ -7,7 +7,10 @@ const mongoose = require("mongoose");
 const mongoURI = process.env.MONGO_URI;
 
 mongoose
-  .connect(mongoURI)
+  .connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("start");
   })
@@ -27,10 +30,9 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  profilePictureId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    ref: "ProfilePicture",
+  profilePictureName: {
+    type: String,
+    required: true
   },
 });
 
